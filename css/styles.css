@@ -44,11 +44,15 @@
 }
 
 .postslider-item-content .postslider-heading {
-	font-size: 20px;
+	font-size: 30px;
 }
 
-.postslider-item-content a {
+.postslider-heading a,
+.postslider-heading a:visited,
+.postslider-item-content a ,
+.postslider-item-content a:visited {
 	color: #fff;
+	text-decoration: none;
 }
 
 .postslider-button {
