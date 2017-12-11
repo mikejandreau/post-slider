@@ -58,5 +58,5 @@ function post_slider(){
 
 <?php
 }
-add_shortcode('test', 'post_slider');
+add_shortcode('post_slider', 'post_slider');
 ?>
