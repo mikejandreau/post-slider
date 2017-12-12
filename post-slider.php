@@ -1,18 +1,17 @@
 <?php
 /**
-* Plugin Name:	Post Slider
-* Plugin URI:	https://github.com/mikejandreau/post-slider
-* Description:	Plugin to display recent post excerpts as a slideshow
-* Version:		1.0
-* Author:		Mike Jandreau
-* Author URI:	https://www.mikejandreau.net/
-* Text Domain:	slider
-* Licence:		GNU General Public License v2
+* Plugin Name:  Post Slider
+* Plugin URI:   https://github.com/mikejandreau/post-slider
+* Description:  Plugin to display recent post excerpts as a slideshow
+* Version:      1.0
+* Author:       Mike Jandreau
+* Author URI:   https://www.mikejandreau.net/
+* Text Domain:  slider
+* Licence:      GNU General Public License v2
 *
 */
 
 function post_slider_assets() {
-
     // register styles
     wp_register_style('post_slider_styles', plugins_url('css/styles.css',__FILE__ ));
     wp_enqueue_style('post_slider_styles');
@@ -24,8 +23,8 @@ function post_slider_assets() {
 add_action( 'wp_enqueue_scripts','post_slider_assets');
 
 // shortcode to display form on any page or post
-function post_slider(){
-?>
+function post_slider(){ 
+    ob_start(); ?> 
 
     <div class="postslider">
         <div class="postslider-inner">
@@ -40,7 +39,6 @@ function post_slider(){
                 ));
             ?>
             <?php while ($recentPosts->have_posts()) : $recentPosts->the_post(); ?>
-
                 <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' ); ?>
                 <div class="postslider-item item-<?php echo $counter++; ?> <?php if ($counter == 1) echo 'currentSlide'; ?>" style="background: linear-gradient(transparent, rgba(0, 0, 0, 0.6)),url('<?php echo $thumb['0'];?>')">
                     <div class="postslider-item-content">
@@ -49,14 +47,13 @@ function post_slider(){
                         <a class="postslider-button" href="<?php the_permalink(); ?>">Read More</a>
                     </div>
                 </div>
-
             <?php endwhile; wp_reset_query(); ?>
         </div>
         <span class="arrow arrow-prev"></span>
         <span class="arrow arrow-next"></span>
     </div>
 
-<?php
+    <?php return ob_get_clean();
 }
 add_shortcode('post_slider', 'post_slider');
 ?>
