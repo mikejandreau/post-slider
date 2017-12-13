@@ -2,7 +2,7 @@
 /**
 * Plugin Name:  Post Slider
 * Plugin URI:   https://github.com/mikejandreau/post-slider
-* Description:  Plugin to display recent post excerpts as a slideshow
+* Description:  Plugin to display recent post excerpts as a slideshow. Simply add [post_slider] to the content area in WordPress.
 * Version:      1.0
 * Author:       Mike Jandreau
 * Author URI:   https://www.mikejandreau.net/
@@ -12,17 +12,17 @@
 */
 
 function post_slider_assets() {
-    // register styles
+    // Register styles
     wp_register_style('post_slider_styles', plugins_url('css/styles.css',__FILE__ ));
     wp_enqueue_style('post_slider_styles');
 
-    // register scripts
+    // Register scripts
     wp_register_script( 'post_slider_scripts', plugins_url('js/scripts.js', __FILE__), array('jquery'),'1.1', true);
     wp_enqueue_script('post_slider_scripts');
 }
 add_action( 'wp_enqueue_scripts','post_slider_assets');
 
-// shortcode to display form on any page or post
+// Shortcode to display form on any page or post
 function post_slider(){ 
     ob_start(); ?> 
 

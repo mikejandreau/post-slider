@@ -1,13 +1,14 @@
+// Post Slider scripts
 
 jQuery(document).ready(function($) {
-    // variables
+    // Variables
     var postslider = document.querySelector('.postslider');
     var numberOfSlides = document.querySelectorAll('.postslider-inner .postslider-item').length;
     var slide = 1;
     var slides = document.querySelectorAll('.postslider-inner .postslider-item');
-    var timingSlider = 5000;
+    var timingSlider = 5000; // Slide timer in milliseconds, 5000 = 5 seconds
 
-    // get previous slide
+    // Get previous slide
     function prevSlide() {
       var indexCurrent = slide - 1;
 
@@ -19,7 +20,7 @@ jQuery(document).ready(function($) {
       addRemoveSliderClasses(indexCurrent, indexNext);
     }
 
-    // get next slide
+    // Get next slide
     function nextSlide() {
       var indexCurrent = slide - 1;
 
@@ -31,7 +32,7 @@ jQuery(document).ready(function($) {
       addRemoveSliderClasses(indexCurrent, indexNext);
     }
 
-    // Add/Remove classes to the item of the postslider
+    // Add/remove classes to the item of the post slider
     function addRemoveSliderClasses(indexCurrent, indexNext) {
 
       slides[indexCurrent].classList.add('hiddenSlide');
@@ -48,7 +49,7 @@ jQuery(document).ready(function($) {
       slides[indexCurrent].classList.remove('currentSlide');
     }
 
-    // reset timer for automatic sliding
+    // Reset timer for automatic sliding
     function resetInterval() {
       clearInterval(timer);
       timer = setInterval(function() {
@@ -56,7 +57,7 @@ jQuery(document).ready(function($) {
       }, timingSlider);
     }
 
-    // listeners for prev/next arrows
+    // Listeners for prev/next arrows
     if (postslider != null) {
       document.querySelector('.arrow-prev').addEventListener('click', function(e) {
         prevSlide();

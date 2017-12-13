@@ -1,3 +1,4 @@
+/* Post Slider styles */
 
 .postslider {
 	position: relative;
@@ -17,7 +18,6 @@
 .postslider-item {
 	position: absolute;
 	text-align: left;
-	/*text-align: center;*/
 	opacity: 0;
 	width: 100%;
 	height: 100%;
