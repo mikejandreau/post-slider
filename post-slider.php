@@ -22,7 +22,7 @@ function post_slider_assets() {
 }
 add_action( 'wp_enqueue_scripts','post_slider_assets');
 
-// Shortcode to display form on any page or post
+// Shortcode to display slider on any page or post
 function post_slider(){ 
     ob_start(); ?> 
 
